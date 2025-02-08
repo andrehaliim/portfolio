@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/navbar.dart';
 
-class ContactUI extends StatefulWidget {
+class ContactUI extends StatelessWidget {
   const ContactUI({super.key});
 
   @override
-  State<ContactUI> createState() => _ContactUIState();
-}
-
-class _ContactUIState extends State<ContactUI> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: NavBar(),
-      backgroundColor: Colors.blue,
+    final size = MediaQuery.of(context).size;
+    final screenWidth = size.width;
+    final screenHeight = size.height;
+
+    return Container(
+        width: screenWidth,
+        height: screenHeight,
+        color: Colors.black,
+        child: Column(
+          children: [
+            SizedBox(height: screenHeight * 0.05,),
+            Text('Contact Me', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.025),),
+          ],
+        )
     );
   }
 }
