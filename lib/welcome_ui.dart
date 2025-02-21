@@ -18,8 +18,8 @@ class WelcomeUI extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               child: Image.asset(
                 'assets/images/profile.png',
-                width: screenWidth * 0.5,
-                height: screenWidth * 0.5,
+                width: screenWidth * 0.3,
+                height: screenWidth * 0.3,
                 fit: BoxFit.contain,
               ),
             ),

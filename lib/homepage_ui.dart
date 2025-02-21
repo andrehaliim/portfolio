@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/about_ui.dart';
 import 'package:portfolio/contact_ui.dart';
 import 'package:portfolio/navbar.dart';
 import 'package:portfolio/projects_ui.dart';
@@ -29,8 +30,9 @@ class _HomePageUIState extends State<HomePageUI> {
     return Scaffold(
       appBar: NavBar(
         onHomePressed: () => _scrollTo(0),
-        onProjectsPressed: () => _scrollTo(screenHeight),
-        onContactPressed: () => _scrollTo(screenHeight * 2),
+        onAboutPressed: () => _scrollTo(screenHeight),
+        onProjectsPressed: () => _scrollTo(screenHeight * 2),
+        onContactPressed: () => _scrollTo(screenHeight * 3),
       ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
@@ -38,6 +40,7 @@ class _HomePageUIState extends State<HomePageUI> {
         child: Column(
           children: [
             SizedBox(height: screenHeight, child: WelcomeUI()),
+            SizedBox(height: screenHeight, child: AboutUI()),
             SizedBox(height: screenHeight, child: ProjectsUI()),
             SizedBox(height: screenHeight, child: ContactUI()),
           ],

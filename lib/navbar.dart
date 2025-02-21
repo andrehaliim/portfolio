@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 class NavBar extends StatelessWidget implements PreferredSizeWidget
 {
   final VoidCallback onHomePressed;
+  final VoidCallback onAboutPressed;
   final VoidCallback onProjectsPressed;
   final VoidCallback onContactPressed;
 
   const NavBar({
     super.key,
     required this.onHomePressed,
+    required this.onAboutPressed,
     required this.onProjectsPressed,
     required this.onContactPressed,
   });
@@ -20,12 +22,19 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget
 
     return AppBar(
       backgroundColor: Colors.black,
-      title: Text(
-        'Portfolio.',
-        style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.025),
+      title: Row(
+        children: [
+          SizedBox(width: screenWidth * 0.05),
+          Text(
+            'Portfolio.',
+            style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.02),
+          ),
+        ],
       ),
       actions: [
         NavItem(title: "Home", onPressed: onHomePressed),
+        SizedBox(width: screenWidth * 0.02),
+        NavItem(title: "About", onPressed: onAboutPressed),
         SizedBox(width: screenWidth * 0.02),
         NavItem(title: "Projects", onPressed: onProjectsPressed),
         SizedBox(width: screenWidth * 0.02),
@@ -53,9 +62,8 @@ class NavItem extends StatelessWidget {
       child: Text(
         title,
         style: TextStyle(
-          fontSize: screenWidth * 0.02,
+          fontSize: screenWidth * 0.0115,
           color: Colors.white,
-          fontWeight: FontWeight.bold,
         ),
       ),
     );

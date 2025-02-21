@@ -16,7 +16,7 @@ class ContactUI extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: screenHeight * 0.05,),
-            Text('Contact Me', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.025),),
+            Text('Contact Me', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.025, fontWeight: FontWeight.bold),),
           ],
         )
     );

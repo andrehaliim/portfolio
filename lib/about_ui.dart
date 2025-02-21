@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ProjectsUI extends StatelessWidget {
-  const ProjectsUI({super.key});
+class AboutUI extends StatefulWidget {
+  const AboutUI({super.key});
 
+  @override
+  State<AboutUI> createState() => _AboutUIState();
+}
+
+class _AboutUIState extends State<AboutUI> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -16,7 +21,8 @@ class ProjectsUI extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: screenHeight * 0.05,),
-            Text('My Projects', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.025, fontWeight: FontWeight.bold),),
+            Text('Get To Know More', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.01),),
+            Text('About Me', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.025, fontWeight: FontWeight.bold),),
           ],
         )
     );
