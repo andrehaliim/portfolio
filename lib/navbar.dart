@@ -4,6 +4,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget
 {
   final VoidCallback onHomePressed;
   final VoidCallback onAboutPressed;
+  final VoidCallback onExperiencePressed;
   final VoidCallback onProjectsPressed;
   final VoidCallback onContactPressed;
 
@@ -11,6 +12,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget
     super.key,
     required this.onHomePressed,
     required this.onAboutPressed,
+    required this.onExperiencePressed,
     required this.onProjectsPressed,
     required this.onContactPressed,
   });
@@ -35,6 +37,8 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget
         NavItem(title: "Home", onPressed: onHomePressed),
         SizedBox(width: screenWidth * 0.02),
         NavItem(title: "About", onPressed: onAboutPressed),
+        SizedBox(width: screenWidth * 0.02),
+        NavItem(title: "Experience", onPressed: onExperiencePressed),
         SizedBox(width: screenWidth * 0.02),
         NavItem(title: "Projects", onPressed: onProjectsPressed),
         SizedBox(width: screenWidth * 0.02),

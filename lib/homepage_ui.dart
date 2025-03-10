@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/about_ui.dart';
 import 'package:portfolio/contact_ui.dart';
+import 'package:portfolio/experience_ui.dart';
 import 'package:portfolio/navbar.dart';
 import 'package:portfolio/projects_ui.dart';
 import 'package:portfolio/welcome_ui.dart';
@@ -31,8 +32,9 @@ class _HomePageUIState extends State<HomePageUI> {
       appBar: NavBar(
         onHomePressed: () => _scrollTo(0),
         onAboutPressed: () => _scrollTo(screenHeight),
-        onProjectsPressed: () => _scrollTo(screenHeight * 2),
-        onContactPressed: () => _scrollTo(screenHeight * 3),
+        onExperiencePressed: () => _scrollTo(screenHeight * 2),
+        onProjectsPressed: () => _scrollTo(screenHeight * 3),
+        onContactPressed: () => _scrollTo(screenHeight * 4),
       ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
@@ -41,6 +43,7 @@ class _HomePageUIState extends State<HomePageUI> {
           children: [
             SizedBox(height: screenHeight, child: WelcomeUI()),
             SizedBox(height: screenHeight, child: AboutUI()),
+            SizedBox(height: screenHeight, child: ExperienceUI()),
             SizedBox(height: screenHeight, child: ProjectsUI()),
             SizedBox(height: screenHeight, child: ContactUI()),
           ],
