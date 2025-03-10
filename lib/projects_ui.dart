@@ -16,7 +16,9 @@ class ProjectsUI extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: screenHeight * 0.05,),
-            Text('My Projects', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.025, fontWeight: FontWeight.bold),),
+            Text('Browse My Recent', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.01),),
+            Text('Projects', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.025, fontWeight: FontWeight.bold),),
+            SizedBox(height: screenHeight * 0.1,),
           ],
         )
     );

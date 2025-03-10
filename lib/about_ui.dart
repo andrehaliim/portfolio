@@ -52,6 +52,7 @@ class _AboutUIState extends State<AboutUI> {
                             children: [
                               Icon(Icons.workspace_premium, color: Colors.white, size: screenWidth * 0.025,),
                               Text('Experience', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.01, fontWeight: FontWeight.bold),),
+                              SizedBox(height: screenHeight * 0.01,),
                               Text('3+ years', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.01),),
                               Text('Software Engineer', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.01),),
                             ],
@@ -72,8 +73,9 @@ class _AboutUIState extends State<AboutUI> {
                             children: [
                               Icon(Icons.school_outlined, color: Colors.white, size: screenWidth * 0.025,),
                               Text('Education', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.01, fontWeight: FontWeight.bold),),
-                              Text('Electrical Engineering', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.01),),
-                              Text('Electrical Engineering', style: TextStyle(color: Colors.transparent, fontSize: screenWidth * 0.01),),
+                              SizedBox(height: screenHeight * 0.01,),
+                              Text('Padjadjaran University', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.01),),
+                              Text('Bachelor of Electrical Engineering', style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.01, fontStyle: FontStyle.italic,),),
                             ],
                           ),
                         ),
