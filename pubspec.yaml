@@ -24,6 +24,7 @@ flutter:
 
   assets:
   - assets/images/profile.png
+  - assets/docs/curriculumvitae.pdf
 
   fonts:
   - family: Poppins

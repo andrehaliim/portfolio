@@ -1,4 +1,8 @@
+import 'dart:typed_data';
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class WelcomeUI extends StatelessWidget {
   const WelcomeUI({super.key});
@@ -46,7 +50,7 @@ class WelcomeUI extends StatelessWidget {
                 ),
                 SizedBox(height: screenHeight * 0.02,),
                 TextButton(
-                    onPressed: (){},
+                    onPressed: _downloadPdf,
                     style: ButtonStyle(
                         shape: WidgetStateProperty.resolveWith((state) => RoundedRectangleBorder(borderRadius: BorderRadius.circular(8), side: BorderSide(color: Colors.white))),
                         padding: WidgetStateProperty.resolveWith((state) => EdgeInsets.all(10))
@@ -60,5 +64,24 @@ class WelcomeUI extends StatelessWidget {
           ),
         ],
       );
+  }
+
+  Future<void> _downloadPdf() async {
+    try {
+      ByteData bytes = await rootBundle.load('assets/docs/curriculumvitae.pdf');
+      Uint8List pdfBytes = bytes.buffer.asUint8List();
+
+      final blob = html.Blob([pdfBytes]);
+
+      final url = html.Url.createObjectUrlFromBlob(blob);
+
+      html.AnchorElement(href: url)
+        ..setAttribute("download", "Andre Curriculum Vitae.pdf")
+        ..click();
+
+      html.Url.revokeObjectUrl(url);
+    } catch (e) {
+      debugPrint('Error downloading PDF: $e');
+    }
   }
 }
