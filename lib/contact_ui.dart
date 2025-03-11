@@ -251,6 +251,27 @@ class _ContactUIState extends State<ContactUI> {
                 ),
               ),
               SizedBox(width: screenWidth * 0.015),
+              ElevatedButton(
+                onPressed: () {
+                  html.window.open('https://open.spotify.com/user/andrehaliim', '_blank');
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: const CircleBorder(
+                    side: BorderSide(
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                  ),
+                  padding: const EdgeInsets.all(25),
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                ),
+                child: Icon(
+                  FontAwesomeIcons.spotify,
+                  color: Colors.white,
+                  size: screenWidth * 0.03,
+                ),
+              ),
             ],
           ),
         ]));

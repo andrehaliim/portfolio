@@ -1,8 +1,9 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
 
 class ProjectsUI extends StatelessWidget {
-  const ProjectsUI({super.key});
+  ProjectsUI({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,21 +38,25 @@ class ProjectsUI extends StatelessWidget {
                   imagePath: 'assets/images/afc1.jpg',
                   screenWidth: screenWidth,
                   screenHeight: screenHeight,
+                  imageTitle: 'AutoFleet Capital Mobile App',
                 ),
                 ProjectItem(
                   imagePath: 'assets/images/fika1.jpg',
                   screenWidth: screenWidth,
                   screenHeight: screenHeight,
+                  imageTitle: 'FIKA Mobile App',
                 ),
                 ProjectItem(
                   imagePath: 'assets/images/gts1.jpg',
                   screenWidth: screenWidth,
                   screenHeight: screenHeight,
+                  imageTitle: 'Gold Trading System',
                 ),
                 ProjectItem(
                   imagePath: 'assets/images/vts1.jpg',
                   screenWidth: screenWidth,
                   screenHeight: screenHeight,
+                  imageTitle: 'Vehicle Tracking System',
                 ),
               ],
             )
@@ -64,12 +69,14 @@ class ProjectItem extends StatefulWidget {
   final String imagePath;
   final double screenWidth;
   final double screenHeight;
+  final String imageTitle;
 
   const ProjectItem({
     super.key,
     required this.imagePath,
     required this.screenWidth,
     required this.screenHeight,
+    required this.imageTitle,
   });
 
   @override
@@ -84,6 +91,18 @@ class _ProjectItemState extends State<ProjectItem> {
       _isHovered = hovering;
     });
   }
+
+  final List<String> afcImage = [
+    'assets/images/afc1.jpg',
+    'assets/images/fika1.jpg',
+    'assets/images/gts1.jpg',
+    'assets/images/vts1.jpg',
+  ];
+
+  String descriptionAFC = 'This application is designed to streamline the auction process for AutoFleet Capital customers,'
+      ' enabling seamless transactions from start to finish.'
+      ' Users can check auction stock, place bids, monitor auction progress,'
+      ' and even recommend vehicles for auction to other users within the platform.';
 
   @override
   Widget build(BuildContext context) {
@@ -118,10 +137,7 @@ class _ProjectItemState extends State<ProjectItem> {
             ),
           if (_isHovered)
             ElevatedButton(
-              onPressed: () {
-                // Implement detail button action
-                print('Detail button clicked for ${widget.imagePath}');
-              },
+              onPressed: () => _showCustomDialog(context, widget.imageTitle, afcImage, descriptionAFC),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.black,
@@ -130,6 +146,80 @@ class _ProjectItemState extends State<ProjectItem> {
             ),
         ],
       ),
+    );
+  }
+
+  void _showCustomDialog(BuildContext context, String title, List<String> imageList, String description) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        final screenSize = MediaQuery.of(context).size;
+        return Dialog(
+          child: Container(
+            width: screenSize.width * 0.5,
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Center(
+                  child: Text(title,
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                ),
+                const SizedBox(height: 10),
+                CarouselSlider(
+                  options: CarouselOptions(
+                    height: screenSize.height * 0.5,
+                    autoPlay: true,
+                    enableInfiniteScroll: true,
+                    enlargeCenterPage: false,
+                    viewportFraction: 0.3,
+                  ),
+                  items: imageList.map((imagePath) {
+                    return Container(
+                      margin: EdgeInsets.all(10),
+                      width: screenSize.width / 6,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.asset(
+                          imagePath,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                ),
+                Text(
+                  description,
+                  style: TextStyle(color: Colors.black, fontSize: screenSize.width * 0.01),
+                ),
+                SizedBox(height: screenSize.height / 15,),
+                Text(
+                  'Platform : Android & iOS',
+                  style: TextStyle(color: Colors.black, fontSize: screenSize.width * 0.01),
+                ),
+                Center(
+                  child: TextButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      style: ButtonStyle(
+                          shape: WidgetStateProperty.resolveWith((state) => RoundedRectangleBorder(borderRadius: BorderRadius.circular(8), side: BorderSide(color: Colors.black))),
+                          backgroundColor: WidgetStateProperty.resolveWith((state) => Colors.black),
+                          padding: WidgetStateProperty.resolveWith((state) => EdgeInsets.all(10))
+                      ),
+                      child: Text(
+                        'Close',
+                        style: TextStyle(fontSize: screenSize.width * 0.015, color: Colors.white),
+                      )),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

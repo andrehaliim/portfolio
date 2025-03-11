@@ -14,6 +14,9 @@ class _AboutUIState extends State<AboutUI> {
     final size = MediaQuery.of(context).size;
     final screenWidth = size.width;
     final screenHeight = size.height;
+    String textBio1 = 'I am a dedicated Software Engineer with over 3 years of experience specializing in mobile app development using Flutter for both Android and iOS. While Flutter is my primary tool, I also have experience coding in Kotlin and Swift for native app development.';
+    String textBio2 = 'Beyond mobile development, I have contributed to backend development using PHP Laravel and Node.js (JavaScript), collaborating with teams to build robust applications. My ability to adapt quickly allows me to seamlessly switch between frontend and backend tasks, ensuring high-quality solutions in dynamic environments.';
+    String textBio3 = 'I am a flexible professional, comfortable working both independently and within a team, always eager to learn new technologies and enhance my skill set.';
 
     return Container(
         width: screenWidth,
@@ -29,9 +32,16 @@ class _AboutUIState extends State<AboutUI> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: screenWidth/4,
-                  height: screenHeight/3,
+                  width: 480,
+                  height: 480,
                   decoration: kBoxDecoration,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      'assets/images/profile2.jpg',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
                 SizedBox(width: screenWidth * 0.05,),
                 Column(
@@ -84,7 +94,21 @@ class _AboutUIState extends State<AboutUI> {
                     SizedBox(height: screenHeight * 0.025,),
                     Container(
                       width: screenWidth/2,
-                      child: Text('Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis reprehenderit et laborum, rem, dolore eum quod voluptate exercitationem nobis, nihil esse debitis maxime facere minus sint delectus velit in eos quo officiis explicabo deleniti dignissimos. Eligendi illum libero dolorum cum laboriosam corrupti quidem, reiciendis ea magnam? Nulla, impedit fuga!',
+                      child: Text(textBio1,
+                        style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.01),
+                      ),
+                    ),
+                    SizedBox(height: screenHeight * 0.025,),
+                    Container(
+                      width: screenWidth/2,
+                      child: Text(textBio2,
+                        style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.01),
+                      ),
+                    ),
+                    SizedBox(height: screenHeight * 0.025,),
+                    Container(
+                      width: screenWidth/2,
+                      child: Text(textBio3,
                         style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.01),
                       ),
                     ),

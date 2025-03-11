@@ -6,16 +6,16 @@ class ExperienceUI extends StatelessWidget {
   final List<ExperienceModel> frontendItems = [
     ExperienceModel(name: 'Dart', level: 'Experienced'),
     ExperienceModel(name: 'Flutter', level: 'Experienced'),
-    ExperienceModel(name: 'Vue.js', level: 'Basic'),
-    ExperienceModel(name: 'HTML', level: 'Intermediate'),
-    ExperienceModel(name: 'CSS', level: 'Intermediate'),
+    ExperienceModel(name: 'Kotlin', level: 'Intermediate'),
+    ExperienceModel(name: 'Swift', level: 'Basic'),
+    ExperienceModel(name: 'HTML & CSS', level: 'Intermediate'),
     ExperienceModel(name: 'Figma', level: 'Basic'),
   ];
 
   final List<ExperienceModel> backendItems = [
     ExperienceModel(name: 'PHP', level: 'Intermediate'),
     ExperienceModel(name: 'Laravel', level: 'Intermediate'),
-    ExperienceModel(name: 'Node.js', level: 'Basic'),
+    ExperienceModel(name: 'Javascript', level: 'Basic'),
     ExperienceModel(name: 'SQL', level: 'Intermediate'),
   ];
 

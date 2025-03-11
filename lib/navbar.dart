@@ -28,8 +28,8 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget
         children: [
           SizedBox(width: screenWidth * 0.05),
           Text(
-            'Portfolio.',
-            style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.02),
+            'Andre Haliim',
+            style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.015),
           ),
         ],
       ),
