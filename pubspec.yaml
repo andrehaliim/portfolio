@@ -28,10 +28,10 @@ flutter:
   assets:
   - assets/images/profile.png
   - assets/images/profile2.jpg
-  - assets/images/afc1.jpg
-  - assets/images/fika1.jpg
-  - assets/images/gts1.jpg
-  - assets/images/vts1.jpg
+  - assets/images/afc/
+  - assets/images/fika/
+  - assets/images/gts/
+  - assets/images/vts/
   - assets/docs/curriculumvitae.pdf
 
   fonts:
