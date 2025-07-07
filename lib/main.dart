@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/homepage_ui.dart';
+import 'package:portfolio/newhome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Poppins'
       ),
-      home: HomePageUI(),
+      home: NewHome(),
     );
   }
 }
