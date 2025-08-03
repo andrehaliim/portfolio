@@ -65,6 +65,20 @@ class _NewHomeState extends State<NewHome> {
     );
   }
 
+
+  Widget _buildDrawerItem(BuildContext context, String title, int tap) {
+    return ListTile(
+      title: Text(
+        title,
+        style: const TextStyle(color: Colors.white, fontSize: 18),
+      ),
+      onTap: () {
+        navigationTap(tap);
+      },
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -171,11 +185,11 @@ class _NewHomeState extends State<NewHome> {
           child: ListView(
             padding: const EdgeInsets.symmetric(vertical: 32),
             children: [
-              _buildDrawerItem(context, 'Home'),
-              _buildDrawerItem(context, 'About'),
+              _buildDrawerItem(context, 'Home', 0),
+              _buildDrawerItem(context, 'About', 1),
               //_buildDrawerItem(context, 'Experience'),
-              _buildDrawerItem(context, 'Projects'),
-              _buildDrawerItem(context, 'Contact'),
+              _buildDrawerItem(context, 'Projects', 2),
+              _buildDrawerItem(context, 'Contact', 3),
             ],
           ),
         ),
@@ -188,16 +202,4 @@ class _NewHomeState extends State<NewHome> {
       project = projects;
     });
   }
-}
-
-Widget _buildDrawerItem(BuildContext context, String title) {
-  return ListTile(
-    title: Text(
-      title,
-      style: const TextStyle(color: Colors.white, fontSize: 18),
-    ),
-    onTap: () {
-      Navigator.of(context).pop(); // Trigger scroll
-    },
-  );
 }
