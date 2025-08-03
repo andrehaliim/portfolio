@@ -74,90 +74,93 @@ class _NewHomeState extends State<NewHome> {
 
     return Scaffold(
       backgroundColor: backgroundColor,
-      body: Container(
-        width: 600,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Stack(
-            children: [
-              project == null
-                  ? Container(
-                    margin: EdgeInsets.only(top : screenHeight/12),
-                    child: SingleChildScrollView(
-                        controller: _scrollController,
-                        child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration:
-                                BoxDecoration(color: containerColor, borderRadius: BorderRadius.circular(8), border: Border.all(color: bgTextColor)),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                const FrontMe(),//class1
-                                SizedBox(height: screenHeight / 27),
-                                MouseRegion(
-                                  onEnter: (_) => setState(() => isHoverHire = true),
-                                  onExit: (_) => setState(() => isHoverHire = false),
-                                  child: AnimatedContainer(
-                                    height: screenHeight / 20,
-                                    duration: const Duration(milliseconds: 200),
-                                    padding: const EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
-                                      color: buttonColor,
-                                      borderRadius: BorderRadius.circular(8),
-                                      boxShadow: isHoverHire
-                                          ? [
-                                              BoxShadow(
-                                                color: Colors.white.withOpacity(0.2),
-                                                spreadRadius: 5,
-                                                blurRadius: 0,
-                                                offset: const Offset(0, 0),
-                                              )
-                                            ]
-                                          : [],
-                                    ),
-                                    alignment: Alignment.center,
-                                    child: const Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.add_circle_outline,
-                                          color: mainTextColor,
-                                          size: 16,
-                                        ),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          'Hire Me',
-                                          style: TextStyle(
+      body: Align(
+        alignment: Alignment.topCenter,
+        child: SizedBox(
+          width: 600,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Stack(
+              children: [
+                project == null
+                    ? Container(
+                      margin: EdgeInsets.only(top : screenHeight/12),
+                      child: SingleChildScrollView(
+                          controller: _scrollController,
+                          child: Column(
+                          children: [
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration:
+                                  BoxDecoration(color: containerColor, borderRadius: BorderRadius.circular(8), border: Border.all(color: bgTextColor)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const FrontMe(),//class1
+                                  SizedBox(height: screenHeight / 27),
+                                  MouseRegion(
+                                    onEnter: (_) => setState(() => isHoverHire = true),
+                                    onExit: (_) => setState(() => isHoverHire = false),
+                                    child: AnimatedContainer(
+                                      height: screenHeight / 20,
+                                      duration: const Duration(milliseconds: 200),
+                                      padding: const EdgeInsets.all(8),
+                                      decoration: BoxDecoration(
+                                        color: buttonColor,
+                                        borderRadius: BorderRadius.circular(8),
+                                        boxShadow: isHoverHire
+                                            ? [
+                                                BoxShadow(
+                                                  color: Colors.white.withOpacity(0.2),
+                                                  spreadRadius: 5,
+                                                  blurRadius: 0,
+                                                  offset: const Offset(0, 0),
+                                                )
+                                              ]
+                                            : [],
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: const Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.add_circle_outline,
                                             color: mainTextColor,
-                                            fontSize: defaultFontSize,
+                                            size: 16,
                                           ),
-                                        ),
-                                      ],
+                                          SizedBox(width: 5),
+                                          Text(
+                                            'Hire Me',
+                                            style: TextStyle(
+                                              color: mainTextColor,
+                                              fontSize: defaultFontSize,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Container(key: aboutKey, child: SizedBox(height: screenHeight / 27),),//class2
-                                const AboutMe(),//class2
-                                Container(key: projectsKey, child: SizedBox(height: screenHeight / 27),),//class2
-                                Projects(onSave: selectProject),//class3
-                                Container(key: hireMeKey, child: SizedBox(height: screenHeight / 27),),//class2
-                                const HireMe(),//class4
-                                SizedBox(height: screenHeight / 27),
-                                const ContactInfo(),
-                              ],
+                                  Container(key: aboutKey, child: SizedBox(height: screenHeight / 27),),//class2
+                                  const AboutMe(),//class2
+                                  Container(key: projectsKey, child: SizedBox(height: screenHeight / 27),),//class2
+                                  Projects(onSave: selectProject),//class3
+                                  Container(key: hireMeKey, child: SizedBox(height: screenHeight / 27),),//class2
+                                  const HireMe(),//class4
+                                  SizedBox(height: screenHeight / 27),
+                                  const ContactInfo(),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      )),
-                  )
-                  : ProjectDetail(selectedProject: project!),
-              isMobile ? const NavigatorBarMobile() : NavigationBarDesktop(onTap: navigationTap)
-            ],
+                          ],
+                        )),
+                    )
+                    : ProjectDetail(selectedProject: project!),
+                isMobile ? const NavigatorBarMobile() : NavigationBarDesktop(onTap: navigationTap)
+              ],
+            ),
           ),
         ),
       ),
