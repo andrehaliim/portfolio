@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const double defaultFontSizeSmall = 12.0;
 const double defaultFontSize = 16.0;
 const double defaultFontSizeMed = 24.0;
 const double defaultFontSizeBig = 32.0;
