@@ -122,42 +122,45 @@ class _HomeState extends State<Home> {
                                   MouseRegion(
                                     onEnter: (_) => setState(() => isHoverHire = true),
                                     onExit: (_) => setState(() => isHoverHire = false),
-                                    child: AnimatedContainer(
-                                      height: screenHeight / 20,
-                                      duration: const Duration(milliseconds: 200),
-                                      padding: const EdgeInsets.all(8),
-                                      decoration: BoxDecoration(
-                                        color: buttonColor,
-                                        borderRadius: BorderRadius.circular(8),
-                                        boxShadow: isHoverHire
-                                            ? [
-                                                BoxShadow(
-                                                  color: Colors.white.withOpacity(0.2),
-                                                  spreadRadius: 5,
-                                                  blurRadius: 0,
-                                                  offset: const Offset(0, 0),
-                                                )
-                                              ]
-                                            : [],
-                                      ),
-                                      alignment: Alignment.center,
-                                      child: const Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.add_circle_outline,
-                                            color: mainTextColor,
-                                            size: 16,
-                                          ),
-                                          SizedBox(width: 5),
-                                          Text(
-                                            'Hire Me',
-                                            style: TextStyle(
+                                    child: GestureDetector(
+                                      onTap: () => onTapNavigation(hireMeKey),
+                                      child: AnimatedContainer(
+                                        height: screenHeight / 20,
+                                        duration: const Duration(milliseconds: 200),
+                                        padding: const EdgeInsets.all(8),
+                                        decoration: BoxDecoration(
+                                          color: buttonColor,
+                                          borderRadius: BorderRadius.circular(8),
+                                          boxShadow: isHoverHire
+                                              ? [
+                                                  BoxShadow(
+                                                    color: Colors.white.withOpacity(0.2),
+                                                    spreadRadius: 5,
+                                                    blurRadius: 0,
+                                                    offset: const Offset(0, 0),
+                                                  )
+                                                ]
+                                              : [],
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: const Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.add_circle_outline,
                                               color: mainTextColor,
-                                              fontSize: defaultFontSize,
+                                              size: 16,
                                             ),
-                                          ),
-                                        ],
+                                            SizedBox(width: 5),
+                                            Text(
+                                              'Hire Me',
+                                              style: TextStyle(
+                                                color: mainTextColor,
+                                                fontSize: defaultFontSize,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),

@@ -56,22 +56,27 @@ class _ContactInfoState extends State<ContactInfo> {
                     const SocialMedia(
                       iconButton: FontAwesomeIcons.whatsapp,
                       tapUrl: 'https://wa.me/6281222936333?text=Hi%20Andre%2C%20I%20came%20across%20your%20portfolio%20website%20and%20would%20like%20to%20work%20with%20you.',
+                      isMobile: false,
                     ),
                     const SocialMedia(
                       iconButton: FontAwesomeIcons.linkedin,
                       tapUrl: 'https://www.linkedin.com/in/andrehaliim',
+                      isMobile: false,
                     ),
                     const SocialMedia(
                       iconButton: FontAwesomeIcons.github,
                       tapUrl: 'https://github.com/andrehaliim',
+                      isMobile: false,
                     ),
                     const SocialMedia(
                       iconButton: FontAwesomeIcons.instagram,
                       tapUrl: 'https://www.instagram.com/andrehaliim',
+                      isMobile: false,
                     ),
                     const SocialMedia(
                       iconButton: FontAwesomeIcons.spotify,
                       tapUrl: 'https://open.spotify.com/user/andrehaliim',
+                      isMobile: false,
                     ),
                   ],
                 )
@@ -102,22 +107,27 @@ class _ContactInfoState extends State<ContactInfo> {
                         SocialMedia(
                           iconButton: FontAwesomeIcons.whatsapp,
                           tapUrl: 'https://wa.me/6281222936333?text=Hi%20Andre%2C%20I%20came%20across%20your%20portfolio%20website%20and%20would%20like%20to%20work%20with%20you.',
+                          isMobile: true,
                         ),
                         SocialMedia(
                           iconButton: FontAwesomeIcons.linkedin,
                           tapUrl: 'https://www.linkedin.com/in/andrehaliim',
+                          isMobile: true,
                         ),
                         SocialMedia(
                           iconButton: FontAwesomeIcons.github,
                           tapUrl: 'https://github.com/andrehaliim',
+                          isMobile: true,
                         ),
                         SocialMedia(
                           iconButton: FontAwesomeIcons.instagram,
                           tapUrl: 'https://www.instagram.com/andrehaliim',
+                          isMobile: true,
                         ),
                         SocialMedia(
                           iconButton: FontAwesomeIcons.spotify,
                           tapUrl: 'https://open.spotify.com/user/andrehaliim',
+                          isMobile: true,
                         ),
                       ],
                     ),
@@ -163,7 +173,8 @@ class _ContactInfoState extends State<ContactInfo> {
 class SocialMedia extends StatefulWidget {
   final IconData iconButton;
   final String tapUrl;
-  const SocialMedia({super.key, required this.iconButton, required this.tapUrl});
+  final bool isMobile;
+  const SocialMedia({super.key, required this.iconButton, required this.tapUrl, required this.isMobile});
 
   @override
   State<SocialMedia> createState() => _SocialMediaState();
@@ -190,7 +201,7 @@ class _SocialMediaState extends State<SocialMedia> {
           child: Icon(
             widget.iconButton,
             color: _isHovered ? mainTextColor : bgTextColor,
-            size: 20,
+            size: widget.isMobile ? 30 : 20,
           ),
         ),
       ),
