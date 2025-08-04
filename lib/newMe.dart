@@ -48,8 +48,7 @@ class _FrontMeState extends State<FrontMe> {
         SizedBox(height: screenHeight / 27),
         CircleAvatar(
           radius: screenHeight/8,
-          backgroundColor: mainTextColor,
-          backgroundImage: const AssetImage('assets/images/profile.png'),
+          backgroundImage: const AssetImage('assets/images/profile3.png'),
         ),
         SizedBox(height: screenHeight / 27),
         const Text("I'm Andre Haliim", style: TextStyle(fontSize: defaultFontSize + 15, color: mainTextColor, fontWeight: FontWeight.bold),),

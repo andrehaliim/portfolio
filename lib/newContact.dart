@@ -45,7 +45,7 @@ class _ContactInfoState extends State<ContactInfo> {
                           ),
                           SizedBox(width: 5),
                           Text(
-                            'Follow Me',
+                            'Find Me',
                             style: TextStyle(color: mainTextColor, fontSize: defaultFontSizeMed),
                           ),
                         ],
@@ -89,7 +89,7 @@ class _ContactInfoState extends State<ContactInfo> {
                           ),
                           SizedBox(width: 5),
                           Text(
-                            'Follow Me',
+                            'Find Me',
                             style: TextStyle(color: mainTextColor, fontSize: defaultFontSizeMed),
                           ),
                         ],
@@ -97,7 +97,12 @@ class _ContactInfoState extends State<ContactInfo> {
                     ),
                     SizedBox(height: screenHeight / 27),
                     const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        SocialMedia(
+                          iconButton: FontAwesomeIcons.whatsapp,
+                          tapUrl: 'https://wa.me/6281222936333?text=Hi%20Andre%2C%20I%20came%20across%20your%20portfolio%20website%20and%20would%20like%20to%20work%20with%20you.',
+                        ),
                         SocialMedia(
                           iconButton: FontAwesomeIcons.linkedin,
                           tapUrl: 'https://www.linkedin.com/in/andrehaliim',

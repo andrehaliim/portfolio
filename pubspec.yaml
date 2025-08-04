@@ -28,6 +28,7 @@ flutter:
   assets:
   - assets/images/profile.png
   - assets/images/profile2.jpg
+  - assets/images/profile3.png
   - assets/images/afc/
   - assets/images/fika/
   - assets/images/gts/
