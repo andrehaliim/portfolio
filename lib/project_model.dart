@@ -1,4 +1,4 @@
-class SelectedProject {
+class ProjectModel {
   String title;
   String subtitle;
   String year;
@@ -10,7 +10,7 @@ class SelectedProject {
   List<String> imageList;
   String description;
   
-  SelectedProject({
+  ProjectModel({
     required this.title,
     required this.subtitle,
     required this.year,

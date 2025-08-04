@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/selectedProject.dart';
+import 'package:portfolio/project_model.dart';
 
 class ProjectDetail extends StatefulWidget {
-  final SelectedProject selectedProject;
+  final ProjectModel selectedProject;
   const ProjectDetail({super.key, required this.selectedProject});
 
   @override

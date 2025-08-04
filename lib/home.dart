@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/newAbout.dart';
-import 'package:portfolio/newContact.dart';
-import 'package:portfolio/newHire.dart';
-import 'package:portfolio/newMe.dart';
-import 'package:portfolio/newNavigation.dart';
-import 'package:portfolio/newProjects.dart';
-import 'package:portfolio/newSkills.dart';
+import 'package:portfolio/about.dart';
+import 'package:portfolio/contact.dart';
+import 'package:portfolio/findme.dart';
+import 'package:portfolio/frontme.dart';
+import 'package:portfolio/navigation.dart';
+import 'package:portfolio/project.dart';
+import 'package:portfolio/skills.dart';
 import 'package:portfolio/project_detail.dart';
-import 'package:portfolio/selectedProject.dart';
+import 'package:portfolio/project_model.dart';
 
-class NewHome extends StatefulWidget {
-  const NewHome({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  State<NewHome> createState() => _NewHomeState();
+  State<Home> createState() => _HomeState();
 }
 
-class _NewHomeState extends State<NewHome> {
+class _HomeState extends State<Home> {
   bool isHoverHire = false;
-  SelectedProject? project;
+  ProjectModel? project;
   final ScrollController _scrollController = ScrollController();
 
   final frontKey = GlobalKey();
@@ -208,7 +208,7 @@ class _NewHomeState extends State<NewHome> {
     );
   }
 
-  void selectProject(SelectedProject projects) {
+  void selectProject(ProjectModel projects) {
     setState(() {
       project = projects;
     });

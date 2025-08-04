@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/selectedProject.dart';
+import 'package:portfolio/project_model.dart';
 
 class Projects extends StatefulWidget {
-  final void Function(SelectedProject) onSave;
+  final void Function(ProjectModel) onSave;
 
   const Projects({super.key, required this.onSave});
 
@@ -13,12 +13,12 @@ class Projects extends StatefulWidget {
 
 class _ProjectsState extends State<Projects> {
   List<bool> isHoverProjects = [false, false, false, false];
-  late List<SelectedProject> listProject;
+  late List<ProjectModel> listProject;
 
   @override
     void initState() {
     listProject = [
-      SelectedProject(
+      ProjectModel(
           title: 'Autofleet Capital',
           subtitle: 'A streamlined platform for buying and selling cars',
           year: '2023',
@@ -29,7 +29,7 @@ class _ProjectsState extends State<Projects> {
           imageList: afcImage,
           description: descriptionAFC
       ),
-      SelectedProject(
+      ProjectModel(
           title: 'FIKA',
           subtitle: 'Smart questionnaire tool for quick and accurate assessments',
           year: '2024',
@@ -40,7 +40,7 @@ class _ProjectsState extends State<Projects> {
           imageList: fikaImage,
           description: descriptionFIKA
       ),
-      SelectedProject(
+      ProjectModel(
           title: 'Gold Trading System',
           subtitle: 'A secure and efficient solution for gold trading',
           year: '2025',
@@ -51,7 +51,7 @@ class _ProjectsState extends State<Projects> {
           imageList: gtsImage,
           description: descriptionGTS
       ),
-      SelectedProject(
+      ProjectModel(
           title: 'Vehicle Tracking System',
           subtitle: 'Smart questionnaire tool for quick and accurate assessments',
           year: '2024',
