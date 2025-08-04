@@ -54,6 +54,10 @@ class _ContactInfoState extends State<ContactInfo> {
                     SizedBox(height: screenHeight / 27),
                     const Spacer(),
                     const SocialMedia(
+                      iconButton: FontAwesomeIcons.whatsapp,
+                      tapUrl: 'https://wa.me/6281222936333?text=Hi%20Andre%2C%20I%20came%20across%20your%20portfolio%20website%20and%20would%20like%20to%20work%20with%20you.',
+                    ),
+                    const SocialMedia(
                       iconButton: FontAwesomeIcons.linkedin,
                       tapUrl: 'https://www.linkedin.com/in/andrehaliim',
                     ),
@@ -133,37 +137,6 @@ class _ContactInfoState extends State<ContactInfo> {
                   GestureDetector(
                       onTap: () {
                         Clipboard.setData(const ClipboardData(text: 'andrehaliimkurniawan@gmail.com'));
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Copied to clipboard!"), backgroundColor: containerColor2, duration: Duration(seconds: 2),),
-                        );
-                      },
-                      child: const Icon(
-                        Icons.copy,
-                        size: defaultFontSize,
-                        color: mainTextColor,
-                      ))
-              ],
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              children: [
-                const Icon(
-                  Icons.phone_outlined,
-                  color: greyTextColor,
-                  size: 16,
-                ),
-                const SizedBox(width: 10),
-                SelectableText(
-                  '+62 81222936333',
-                  style: TextStyle(color: mainTextColor, fontSize: !isMobile ? defaultFontSize : defaultFontSizeSmall),
-                ),
-                if (isMobile) const Spacer(),
-                if (isMobile)
-                  GestureDetector(
-                      onTap: () {
-                        Clipboard.setData(const ClipboardData(text: '6281222936333'));
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text("Copied to clipboard!"), backgroundColor: containerColor2, duration: Duration(seconds: 2),),
                         );
