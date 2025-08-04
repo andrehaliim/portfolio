@@ -88,25 +88,6 @@ class _NavigationBarDesktopState extends State<NavigationBarDesktop> {
       ),
     );
   }
-
-  Future<void> _downloadPdf() async {
-    try {
-      ByteData bytes = await rootBundle.load('assets/docs/curriculumvitae.pdf');
-      Uint8List pdfBytes = bytes.buffer.asUint8List();
-
-      final blob = html.Blob([pdfBytes]);
-
-      final url = html.Url.createObjectUrlFromBlob(blob);
-
-      html.AnchorElement(href: url)
-        ..setAttribute("download", "Andre Curriculum Vitae.pdf")
-        ..click();
-
-      html.Url.revokeObjectUrl(url);
-    } catch (e) {
-      debugPrint('Error downloading PDF: $e');
-    }
-  }
 }
 
 class NavigatorBarMobile extends StatefulWidget {
@@ -148,38 +129,41 @@ class _NavigatorBarMobileState extends State<NavigatorBarMobile> {
             MouseRegion(
               onEnter: (_) => setState(() => isHoverCV = true),
               onExit: (_) => setState(() => isHoverCV = false),
-              child: AnimatedContainer(
-                height: screenHeight/20,
-                duration: const Duration(milliseconds: 200),
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: buttonColor,
-                  borderRadius: BorderRadius.circular(8),
-                  boxShadow: isHoverCV
-                      ? [
-                    BoxShadow(
-                      color: Colors.white.withOpacity(0.2),
-                      spreadRadius: 5,
-                      blurRadius: 0,
-                      offset: const Offset(0, 0),
-                    )
-                  ]
-                      : [],
-                ),
-                alignment: Alignment.center,
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.download_outlined, color: mainTextColor, size: 16,),
-                    SizedBox(width: 5),
-                    Text(
-                      'Download CV',
-                      style: TextStyle(
-                        color: mainTextColor,
-                        fontSize: defaultFontSize,
+              child: GestureDetector(
+                onTap: _downloadPdf,
+                child: AnimatedContainer(
+                  height: screenHeight/20,
+                  duration: const Duration(milliseconds: 200),
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: buttonColor,
+                    borderRadius: BorderRadius.circular(8),
+                    boxShadow: isHoverCV
+                        ? [
+                      BoxShadow(
+                        color: Colors.white.withOpacity(0.2),
+                        spreadRadius: 5,
+                        blurRadius: 0,
+                        offset: const Offset(0, 0),
+                      )
+                    ]
+                        : [],
+                  ),
+                  alignment: Alignment.center,
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.download_outlined, color: mainTextColor, size: 16,),
+                      SizedBox(width: 5),
+                      Text(
+                        'Download CV',
+                        style: TextStyle(
+                          color: mainTextColor,
+                          fontSize: defaultFontSize,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -232,5 +216,24 @@ class _NavigationIconState extends State<NavigationIcon> {
         ),
       ),
     );
+  }
+}
+
+Future<void> _downloadPdf() async {
+  try {
+    ByteData bytes = await rootBundle.load('assets/docs/curriculumvitae.pdf');
+    Uint8List pdfBytes = bytes.buffer.asUint8List();
+
+    final blob = html.Blob([pdfBytes]);
+
+    final url = html.Url.createObjectUrlFromBlob(blob);
+
+    html.AnchorElement(href: url)
+      ..setAttribute("download", "Andre Curriculum Vitae.pdf")
+      ..click();
+
+    html.Url.revokeObjectUrl(url);
+  } catch (e) {
+    debugPrint('Error downloading PDF: $e');
   }
 }
