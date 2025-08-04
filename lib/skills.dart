@@ -25,7 +25,7 @@ class _SkillsState extends State<Skills> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final screenWidth = size.width;
+    //final screenWidth = size.width;
     final screenHeight = size.height;
 
     return Container(
@@ -96,7 +96,6 @@ class _SkillItem extends StatefulWidget {
   final String skillName;
 
   const _SkillItem({
-    super.key,
     required this.imagePath,
     required this.skillName,
   });
