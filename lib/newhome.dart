@@ -6,6 +6,7 @@ import 'package:portfolio/newHire.dart';
 import 'package:portfolio/newMe.dart';
 import 'package:portfolio/newNavigation.dart';
 import 'package:portfolio/newProjects.dart';
+import 'package:portfolio/newSkills.dart';
 import 'package:portfolio/project_detail.dart';
 import 'package:portfolio/selectedProject.dart';
 
@@ -24,6 +25,7 @@ class _NewHomeState extends State<NewHome> {
   final frontKey = GlobalKey();
   final aboutKey = GlobalKey();
   final projectsKey = GlobalKey();
+  final skillsKey = GlobalKey();
   final hireMeKey = GlobalKey();
   final contactKey = GlobalKey();
 
@@ -41,6 +43,8 @@ class _NewHomeState extends State<NewHome> {
         return onTapNavigation(projectsKey);
       case 3:
         return onTapNavigation(hireMeKey);
+      case 4:
+        return onTapNavigation(skillsKey);
       default:
         return onTapNavigation(contactKey);
     }
@@ -157,14 +161,20 @@ class _NewHomeState extends State<NewHome> {
                                       ),
                                     ),
                                   ),
-                                  Container(key: aboutKey, child: SizedBox(height: screenHeight / 27),),//class2
-                                  const AboutMe(),//class2
-                                  Container(key: projectsKey, child: SizedBox(height: screenHeight / 27),),//class2
-                                  Projects(onSave: selectProject),//class3
-                                  Container(key: hireMeKey, child: SizedBox(height: screenHeight / 27),),//class2
-                                  const HireMe(),//class4
+                                  Container(key: aboutKey, child: SizedBox(height: screenHeight / 27),),
+                                  const AboutMe(),
+                                  Container(key: projectsKey, child: SizedBox(height: screenHeight / 27),),
+                                  Projects(onSave: selectProject),
+                                  Container(key: skillsKey, child: SizedBox(height: screenHeight / 27),),
+                                  Skills(),
+                                  Container(key: hireMeKey, child: SizedBox(height: screenHeight / 27),),
+                                  const HireMe(),
                                   SizedBox(height: screenHeight / 27),
                                   const ContactInfo(),
+                                  SizedBox(height: screenHeight/13.5,),
+                                  Text('© 2025 Andre Haliim. This website was built using Flutter.',
+                                    style: TextStyle(color: mainTextColor, fontSize: defaultFontSizeSmall),
+                                  )
                                 ],
                               ),
                             ),
@@ -189,6 +199,7 @@ class _NewHomeState extends State<NewHome> {
               _buildDrawerItem(context, 'About', 1),
               //_buildDrawerItem(context, 'Experience'),
               _buildDrawerItem(context, 'Projects', 2),
+              _buildDrawerItem(context, 'Skills', 4),
               _buildDrawerItem(context, 'Contact', 3),
             ],
           ),

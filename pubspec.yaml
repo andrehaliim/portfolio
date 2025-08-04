@@ -32,6 +32,7 @@ flutter:
   - assets/images/fika/
   - assets/images/gts/
   - assets/images/vts/
+  - assets/images/skills/
   - assets/docs/curriculumvitae.pdf
 
   fonts:

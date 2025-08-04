@@ -38,6 +38,7 @@ class _NavigationBarDesktopState extends State<NavigationBarDesktop> {
             GestureDetector(onTap: () {widget.onTap(0);},child: const NavigationIcon(iconButton: Icons.home_outlined, iconText: 'Home')),
             GestureDetector(onTap: () {widget.onTap(1);},child: const NavigationIcon(iconButton: Icons.person_outline, iconText: 'About')),
             GestureDetector(onTap: () {widget.onTap(2);},child: const NavigationIcon(iconButton: Icons.build_circle_outlined, iconText: 'Project')),
+            GestureDetector(onTap: () {widget.onTap(4);},child: const NavigationIcon(iconButton: Icons.workspace_premium_outlined, iconText: 'Skills')),
             GestureDetector(onTap: () {widget.onTap(3);},child: const NavigationIcon(iconButton: Icons.mail_outline, iconText: 'Contact')),
             //const NavigationIcon(iconButton: Icons.work_outline, iconText: 'Experience'),
             const Spacer(),
