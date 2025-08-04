@@ -95,7 +95,7 @@ class _HomeState extends State<Home> {
       body: Align(
         alignment: Alignment.topCenter,
         child: SizedBox(
-          width: isMobile ? (screenWidth > 380 ? 380 : screenWidth) : 600,
+          width: 600,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Stack(
