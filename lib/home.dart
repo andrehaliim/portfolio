@@ -95,7 +95,7 @@ class _HomeState extends State<Home> {
       body: Align(
         alignment: Alignment.topCenter,
         child: SizedBox(
-          width: 600,
+          width: isMobile ? (screenWidth > 380 ? 380 : screenWidth) : 600,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Stack(
@@ -172,8 +172,9 @@ class _HomeState extends State<Home> {
                                   SizedBox(height: screenHeight / 27),
                                   const ContactInfo(),
                                   SizedBox(height: screenHeight/13.5,),
-                                  Text('© 2025 Andre Haliim. This website was built using Flutter.',
+                                  Text('© 2025 Andre Haliim\nThis website was built using Flutter.',
                                     style: TextStyle(color: mainTextColor, fontSize: defaultFontSizeSmall),
+                                    textAlign: TextAlign.center,
                                   )
                                 ],
                               ),
