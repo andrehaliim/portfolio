@@ -9,7 +9,8 @@ class ProjectModel {
   bool isHover = false;
   List<String> imageList;
   String description;
-  
+  String link;
+
   ProjectModel({
     required this.title,
     required this.subtitle,
@@ -20,5 +21,6 @@ class ProjectModel {
     required this.logo,
     required this.imageList,
     required this.description,
+    this.link = '',
   });
 }

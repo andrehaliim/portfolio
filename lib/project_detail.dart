@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/project_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProjectDetail extends StatefulWidget {
   final ProjectModel selectedProject;
@@ -12,6 +13,37 @@ class ProjectDetail extends StatefulWidget {
 }
 
 class _ProjectDetailState extends State<ProjectDetail> {
+  bool _isHovered = false;
+
+  Future<void> _launchProjectUrl() async {
+    // 1. Check if the link is not empty before parsing.
+    if (widget.selectedProject.link.isEmpty) {
+      debugPrint("URL is empty, cannot launch.");
+      // Optionally show a message to the user
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('No download link available for this project.')),
+        );
+      }
+      return;
+    }
+    final Uri url = Uri.parse(widget.selectedProject.link);
+
+    // 2. Use a launch mode that opens the browser.
+    // This is crucial for file downloads to work reliably.
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      // 3. Implement user-friendly error handling instead of throwing an exception.
+      debugPrint('Could not launch $url');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: Could not open the link: $url')),
+        );
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,16 +73,29 @@ class _ProjectDetailState extends State<ProjectDetail> {
               children: [
                  Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.circle,
                       color: greyTextColor,
                       size: 16,
                     ),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     Text(
                       widget.selectedProject.title,
-                      style: TextStyle(color: mainTextColor, fontSize: defaultFontSizeMed),
+                      style: const TextStyle(color: mainTextColor, fontSize: defaultFontSizeMed),
                     ),
+                    const Spacer(),
+                    Visibility(
+                        visible: widget.selectedProject.link.isNotEmpty,
+                        child: MouseRegion(
+                          onEnter: (_) => setState(() => _isHovered = true),
+                          onExit: (_) => setState(() => _isHovered = false),
+                          child: GestureDetector(
+                            onTap: _launchProjectUrl,
+                            child: Icon(Icons.download, color: _isHovered ? mainTextColor : bgTextColor,
+                              size: 32,),
+                          ),
+                        )
+                    )
                   ],
                 ),
                 SizedBox(height: screenHeight / 27),
@@ -64,7 +109,7 @@ class _ProjectDetailState extends State<ProjectDetail> {
                       children: [
                         CarouselSlider(
                           options: CarouselOptions(
-                            height: screenHeight / 1.5,
+                            height: screenHeight / 1.2,
                             autoPlay: true,
                             enableInfiniteScroll: true,
                             enlargeCenterPage: true,

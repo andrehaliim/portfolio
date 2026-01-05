@@ -62,6 +62,18 @@ class _ProjectsState extends State<Projects> {
           imageList: vtsImage,
           description: descriptionGTS
       ),
+      ProjectModel(
+          title: 'Muslim Essential',
+          subtitle: 'A modern, lightweight prayer time app for Muslims',
+          year: '2025',
+          platform: 'Android, iOS',
+          client: 'Personal App',
+          language: 'Dart, Flutter',
+          logo: 'assets/images/muslim/icon.png',
+          imageList: muslimImage,
+          description: descriptionMUSLIM,
+          link: 'https://github.com/andrehaliim/muslim-essential/releases'
+      ),
     ];
     super.initState();
   }
@@ -222,6 +234,15 @@ class _ProjectsState extends State<Projects> {
     'assets/images/vts/vts5.jpg',
     'assets/images/vts/vts6.jpg',
   ];
+  final List<String> muslimImage = [
+    'assets/images/muslim/muslim1.jpg',
+    'assets/images/muslim/muslim2.jpg',
+    'assets/images/muslim/muslim3.jpg',
+    'assets/images/muslim/muslim4.jpg',
+    'assets/images/muslim/muslim5.jpg',
+    'assets/images/muslim/muslim6.jpg',
+    'assets/images/muslim/muslim7.jpg',
+  ];
 
   final String descriptionAFC = 'This application is designed to streamline the auction process for AutoFleet Capital customers,'
       ' enabling seamless transactions from start to finish.'
@@ -246,4 +267,9 @@ class _ProjectsState extends State<Projects> {
       ' location to another. It works in synergy with tracking devices installed on each vehicle, with real-time location data'
       ' recorded by the server and displayed within the application. The app also features a barcode scanning function, enabling'
       ' users to easily register trackers and vehicles for location monitoring, ensuring a more efficient and streamlined process.';
+
+  final String descriptionMUSLIM = "A modern, lightweight prayer time app for Muslims."
+      " It automatically displays daily prayer schedules based on the user's location,"
+      " complete with adhan notifications, a Qibla compass, and a personal prayer tracking feature."
+      " Designed for simplicity and offline functionality.";
 }
